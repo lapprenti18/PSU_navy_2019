@@ -8,7 +8,13 @@
 MAIN	=	src/main.c
 
 SRC	=	src/init.c	\
-		src/errors.c
+		src/errors.c	\
+		src/check_in_the_path.c	\
+		src/create_tab.c	\
+		src/display_map.c	\
+		src/fill_tab.c	\
+		src/lenght_boat.c	\
+		src/place_boat.c
 
 TESTS	=	tests/navy_tests.c
 
