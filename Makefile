@@ -7,7 +7,8 @@
 
 MAIN	=	src/main.c
 
-SRC	=	src/init.c
+SRC	=	src/init.c	\
+		src/errors.c
 
 TESTS	=	tests/navy_tests.c
 
