@@ -55,6 +55,7 @@ clean:
 	$(RM) -f tests/*.gcno
 	$(RM) -f tests/*.gcda
 	$(RM) -f tests/*.o
+	$(RM) -f lib/libmy.a
 	$(RM) -f unit_tests
 	$(MAKE) clean -C lib/my/
 
