@@ -8,7 +8,9 @@
 MAIN	=	src/main.c
 
 SRC	=	src/init.c	\
-		src/errors.c
+		src/errors.c	\
+		src/communication.c	\
+		src/init_game.c
 
 TESTS	=	tests/navy_tests.c
 

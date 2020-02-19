@@ -13,6 +13,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <signal.h>
+
 typedef struct game {
+    int int_recept;
+    char *str_recept;
+    char **my_map;
+    char **enemy_map;
 } game_t;
 
+game_t *game;
