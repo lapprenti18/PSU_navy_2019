@@ -13,6 +13,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
 typedef struct game {
 } game_t;
-

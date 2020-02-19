@@ -7,7 +7,7 @@
 
 #include "navy.h"
 
-int navy()
+int navy(void)
 {
     return (0);
 }
