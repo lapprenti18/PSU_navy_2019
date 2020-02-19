@@ -215,9 +215,8 @@ int load_positions_file(char *path, char **tab_coord)
 {
     char *coords = fill(path);
 
-    if (my_strcmp(coords, "84") == 0 || good_coord_file(coords) == 84) {
+    if (my_strcmp(coords, "84") == 0 || good_coord_file(coords) == 84)
         return (84);
-    }
     load_tab(coords, tab_coord);
     display_map(tab_coord);
 }
