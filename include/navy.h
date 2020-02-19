@@ -20,6 +20,7 @@ typedef struct game {
     char *str_recept;
     char **my_map;
     char **enemy_map;
+    pid_t enemy_pid;
 } game_t;
 
 game_t *game;

@@ -14,9 +14,12 @@ int    launch_game_p1(char *path) {
     printf("my_pid : %d\n", getpid());
     printf("waiting for ennemy connexion...\n");
     while (1);
+    return (0);
 }
 
-int    launch_game_p2(pid_t pid, char *path) {
+int    launch_game_p2(char *path) {
     if (load_positions_file(path, game->my_map) == 84)
         return (84);
+    send_msg("CONNECT");
+    return (0);
 }

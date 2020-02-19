@@ -11,6 +11,19 @@ void    msg_handler(char *message) {
     printf("Message %s\n", message);
 }
 
+void    send_msg(char *message) {
+    for (int i = 0; message[i]; i++) {
+        for (int j = 0; j < message[i]; j++) {
+            kill(game->enemy_pid, SIGUSR1);
+            usleep(100);
+        }
+        usleep(100);
+        kill(game->enemy_pid, SIGUSR2);
+        usleep(100);
+    }
+    kill(game->enemy_pid, SIGUSR2);
+}
+
 void    signal_handler(int signo, siginfo_t *si, void *data) {
     if (si->si_signo == SIGUSR1) {
         game->int_recept += 1;
@@ -31,6 +44,7 @@ void    init_recepetion()
 {
     struct sigaction sa;
 
+    sigemptyset(&sa.sa_mask);
     sa.sa_flags = SA_SIGINFO;
     sa.sa_sigaction = signal_handler;
     sigaction(SIGUSR1, &sa, 0);
