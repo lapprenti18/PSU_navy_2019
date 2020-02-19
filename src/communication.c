@@ -7,7 +7,17 @@
 
 #include "../include/navy.h"
 
-void    msg_handler(char *message) {
+void    msg_handler(char *message, pid_t pid) {
+    if (!my_strcmp(message, "00")) {
+        if (!game->enemy_pid) {
+            game->enemy_pid = pid;
+            my_printf("\nenemy connected\n");
+            send_msg("00");
+        } else {
+            my_printf("successfully connected\n");
+        }
+        return;
+    }
     printf("Message %s\n", message);
 }
 
@@ -30,20 +40,22 @@ void    signal_handler(int signo, siginfo_t *si, void *data) {
         return;
     }
     if (si->si_signo == SIGUSR2) {
-        if (game->int_recept = 0) {
-            msg_handler(game->str_recept);
-            my_memset(game->str_recept, 0, my_strlen(game->str_recept) + 1);
+        if (game->int_recept == 0) {
+            msg_handler(game->str_recept, si->si_pid);
+            my_memset(game->str_recept, 0, 3);
         } else {
             my_charcat(game->str_recept, (char)game->int_recept);
         }
+        game->int_recept = 0;
     }
 
 }
 
-void    init_recepetion()
+void    init_recepetion(void)
 {
     struct sigaction sa;
 
+    game->str_recept = malloc(sizeof(char ) * 3);
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = SA_SIGINFO;
     sa.sa_sigaction = signal_handler;

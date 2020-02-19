@@ -16,7 +16,6 @@
 #include <signal.h>
 
 typedef struct game {
-<<<<<<< HEAD
     int int_recept;
     char *str_recept;
     char **my_map;
@@ -25,8 +24,6 @@ typedef struct game {
 } game_t;
 
 game_t *game;
-=======
-} game_t;
 
 int load_positions_file(char *path, char **tab_coord);
 void display_map(char **tab);
@@ -43,4 +40,7 @@ int check_letter(char *cd);
 int check_two_point(char *cd);
 int check_coord(char *cd);
 char *fill(char *path);
->>>>>>> origin/pos_handling
+void init_recepetion(void);
+void send_msg(char *message);
+int launch_game_p1(char *path);
+int launch_game_p2(char *path);

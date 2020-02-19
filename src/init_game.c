@@ -20,6 +20,9 @@ int    launch_game_p1(char *path) {
 int    launch_game_p2(char *path) {
     if (load_positions_file(path, game->my_map) == 84)
         return (84);
-    send_msg("CONNECT");
+    init_recepetion();
+    printf("my_pid : %d\n", getpid());
+    send_msg("00");
+    while (1);
     return (0);
 }

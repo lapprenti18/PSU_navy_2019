@@ -9,10 +9,9 @@
 
 char    *my_charcat(char *dest, char const src)
 {
-    char *temp = malloc(sizeof(char) * 2);
+    int dest_size = my_strlen(dest);
 
-    temp[0] = src;
-    temp[1] = '\0';
-    dest = my_strcat2(dest, temp, -1, 0);
+    dest[dest_size] = src;
+    dest[dest_size + 1] = '\0';
     return (dest);
 }
