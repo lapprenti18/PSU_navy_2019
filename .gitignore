@@ -1,0 +1,4 @@
+.vscode/*
+*.o
+lib/*.a
+lib/libmy.a
