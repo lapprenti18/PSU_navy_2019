@@ -36,11 +36,11 @@ void display_turn(int my_turn) {
 
 void display_map(char **tab)
 {
-    my_printf(" |A B C D E F G H\n-+----------------\n");
+    my_printf(" |A B C D E F G H\n-+---------------\n");
     for (int c = 0; tab[c]; c++) {
         my_printf("%d|", c + 1);
         for (int a = 0; tab[c][a]; a++) {
-            a % 1 == 0 ? my_printf(" ") : 0;
+            a % 1 == 0 && a != 0 ? my_printf(" ") : 0;
             my_printf("%c", tab[c][a]);
         }
         my_printf("\n");
