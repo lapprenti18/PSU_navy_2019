@@ -38,11 +38,7 @@ int    send_msg(char *message)
         kill(game->enemy_pid, SIGUSR2);
         usleep(100);
     }
-    if (kill(game->enemy_pid, SIGUSR2) < 0) {
-        my_printf("Invalid PID\n");
-        game->return_code = 84;
-        return (84);
-    }
+    kill(game->enemy_pid, SIGUSR2);
     return (0);
 }
 
