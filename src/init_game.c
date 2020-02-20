@@ -13,8 +13,8 @@ int    launch_game_p1(char *path) {
     game->player = 1;
     game->enemy_map = fill_tab();
     init_recepetion();
-    printf("my_pid : %d\n", getpid());
-    printf("waiting for ennemy connexion...\n");
+    my_printf("my_pid : %d\n", getpid());
+    my_printf("waiting for ennemy connexion...\n");
     while (game->return_code == -1);
     return (game->return_code);
 }
@@ -25,7 +25,7 @@ int    launch_game_p2(char *path) {
     game->player = 2;
     game->enemy_map = fill_tab();
     init_recepetion();
-    printf("my_pid : %d\n", getpid());
+    my_printf("my_pid : %d\n", getpid());
     send_msg("00");
     while (game->return_code == -1);
     return (game->return_code);
