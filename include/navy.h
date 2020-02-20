@@ -44,7 +44,7 @@ int check_two_point(char *cd);
 int check_coord(char *cd);
 char *fill(char *path);
 void init_recepetion(void);
-void send_msg(char *message);
+int send_msg(char *message);
 int launch_game_p1(char *path);
 int launch_game_p2(char *path);
 void display_turn(int);

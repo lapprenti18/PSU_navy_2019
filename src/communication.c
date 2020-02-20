@@ -27,7 +27,7 @@ void    msg_handler(char *message, pid_t pid)
         handle_position(message);
 }
 
-void    send_msg(char *message)
+int    send_msg(char *message)
 {
     for (int i = 0; message[i]; i++) {
         for (int j = 0; j < message[i]; j++) {
@@ -38,7 +38,12 @@ void    send_msg(char *message)
         kill(game->enemy_pid, SIGUSR2);
         usleep(100);
     }
-    kill(game->enemy_pid, SIGUSR2);
+    if (kill(game->enemy_pid, SIGUSR2) < 0) {
+        my_printf("Invalid PID\n");
+        game->return_code = 84;
+        return (84);
+    }
+    return (0);
 }
 
 void    signal_handler(int signo, siginfo_t *si, void *data)
