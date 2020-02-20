@@ -16,12 +16,14 @@
 #include <signal.h>
 
 typedef struct game {
+    int return_code;
     int int_recept;
     char *str_recept;
     char **my_map;
     char **enemy_map;
     pid_t enemy_pid;
-    int is_my_turn;
+    int player;
+    char *last_input;
 } game_t;
 
 game_t *game;
@@ -50,3 +52,6 @@ int check_valid_attack(char *str);
 int missed_or_touch(char **tab, char *str);
 int check_win_or_loose(char **tab);
 void display_touch(char **tab, char *str, char x);
+void handle_position(char *msg);
+void handle_response(char *msg);
+void display_prompt();

@@ -22,7 +22,7 @@ int check_valid_attack(char *str)
 
 int missed_or_touch(char **tab, char *str)
 {
-    if (tab[str[1] - 49][str[0] - 65] < 2 || tab[str[1] - 49][str[0] - 65] > 5)
+    if (tab[str[1] - 49][str[0] - 65] < '2' || tab[str[1] - 49][str[0] - 65] > '5')
         return (0);
     return (1);
 }

@@ -17,7 +17,8 @@ SRC	=	src/init.c	\
 		src/fill_tab.c	\
 		src/lenght_boat.c	\
 		src/place_boat.c	\
-		src/attack.c
+		src/attack.c	\
+		src/response.c
 
 TESTS	=	tests/navy_tests.c
 
