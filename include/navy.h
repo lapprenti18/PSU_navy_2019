@@ -46,3 +46,7 @@ void send_msg(char *message);
 int launch_game_p1(char *path);
 int launch_game_p2(char *path);
 void display_turn(int);
+int check_valid_attack(char *str);
+int missed_or_touch(char **tab, char *str);
+int check_win_or_loose(char **tab);
+void display_touch(char **tab, char *str, char x);

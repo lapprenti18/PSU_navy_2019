@@ -16,7 +16,8 @@ SRC	=	src/init.c	\
 		src/display_map.c	\
 		src/fill_tab.c	\
 		src/lenght_boat.c	\
-		src/place_boat.c
+		src/place_boat.c	\
+		attack.c
 
 TESTS	=	tests/navy_tests.c
 
