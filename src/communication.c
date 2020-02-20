@@ -7,7 +7,8 @@
 
 #include "../include/navy.h"
 
-void    msg_handler(char *message, pid_t pid) {
+void    msg_handler(char *message, pid_t pid)
+{
     if (!my_strcmp(message, "00")) {
         if (!game->enemy_pid) {
             game->enemy_pid = pid;
@@ -26,7 +27,8 @@ void    msg_handler(char *message, pid_t pid) {
         handle_position(message);
 }
 
-void    send_msg(char *message) {
+void    send_msg(char *message)
+{
     for (int i = 0; message[i]; i++) {
         for (int j = 0; j < message[i]; j++) {
             kill(game->enemy_pid, SIGUSR1);
@@ -39,7 +41,8 @@ void    send_msg(char *message) {
     kill(game->enemy_pid, SIGUSR2);
 }
 
-void    signal_handler(int signo, siginfo_t *si, void *data) {
+void    signal_handler(int signo, siginfo_t *si, void *data)
+{
     if (si->si_signo == SIGUSR1) {
         game->int_recept += 1;
         return;

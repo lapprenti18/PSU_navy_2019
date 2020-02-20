@@ -14,7 +14,7 @@ int    launch_game_p1(char *path) {
     game->enemy_map = fill_tab();
     init_recepetion();
     my_printf("my_pid : %d\n", getpid());
-    my_printf("waiting for ennemy connexion...\n");
+    my_printf("waiting for enemy connexion...\n");
     while (game->return_code == -1);
     return (game->return_code);
 }

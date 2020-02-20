@@ -28,7 +28,7 @@ void    handle_response(char *msg)
     if (game->player == 2)
         display_turn(0);
     else
-        printf("\nwaiting for enemy's attack...\n");
+        my_printf("\nwaiting for enemy's attack...");
 }
 
 void    handle_position(char *msg)
@@ -36,10 +36,10 @@ void    handle_position(char *msg)
     int touch = 0;
 
     if (missed_or_touch(game->my_map, msg) == 1) {
-        my_printf("%s: hit\n", msg);
+        my_printf("\n%s: hit\n", msg);
         touch = 1;
     } else {
-        my_printf("%s: missed\n", msg);
+        my_printf("\n%s: missed\n", msg);
     }
     display_touch(game->my_map, msg, touch ? 'x' : 'o');
     my_printf("\n");

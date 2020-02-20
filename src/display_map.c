@@ -23,7 +23,8 @@ void display_prompt() {
     }
 }
 
-void display_turn(int my_turn) {
+void display_turn(int my_turn)
+{
     my_printf("\nmy_positions:\n");
     display_map(game->my_map);
     my_printf("\nenemy's positions:\n");
@@ -31,7 +32,7 @@ void display_turn(int my_turn) {
     if (my_turn == -1)
         return;
     if (!my_turn)
-        my_printf("waiting for enemy's attack...\n");
+        my_printf("waiting for enemy's attack...");
     else
         display_prompt();
 }
