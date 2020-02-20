@@ -32,3 +32,7 @@ int check_letter(char *cd);
 int check_two_point(char *cd);
 int check_coord(char *cd);
 char *fill(char *path);
+int check_valid_attack(char *str);
+int missed_or_touch(char **tab, char *str);
+int check_win_or_loose(char **tab);
+void display_touch(char **tab, char *str, char x);
