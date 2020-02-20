@@ -9,15 +9,24 @@
 
 void    handle_position(char *msg)
 {
-    my_printf("%s: ", msg);
-    if (missed_or_touch(msg) == 1)
-        my_printf("hit\n");
-    else
-        my_printf("missed\n");
-    if (game->is_my_turn == 0)
+    int touch = 0;
+
+    if (missed_or_touch(game->my_map, msg) == 1) {
+        my_printf("%s: hit\n", msg);
+        touch = 1;
+    } else
+        my_printf("%s: missed\n", msg);
+    if (game->is_my_turn == 0) {
+        display_touch(game->my_map, msg, touch ? 'x' : 'o');
+        my_printf("\n");
         send_msg(msg);
-    else
+        display_prompt();
+    } else if (game->is_my_turn == 1) {
+        display_touch(game->enemy_map, msg, touch ? 'x' : 'o');
         my_printf("\nwaiting for enemy's attack...\n");
+        game->is_my_turn = 3;
+    } else
+        display_turn(1);
 }
 
 void    msg_handler(char *message, pid_t pid) {

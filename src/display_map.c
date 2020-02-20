@@ -10,11 +10,13 @@
 void display_prompt() {
     char buf[32278];
     int size = 0;
+
+    game->is_my_turn = 1;
     my_printf("attack: ");
+    my_memset(buf, 0, 32278);
     size = read(0, buf, 32278);
-    buf[size] = '\0';
+    buf[size - 1] = '\0';
     if (check_valid_attack(buf) == 84) {
-        my_printf("wrong position\n");
         display_prompt();
     } else {
         send_msg(buf);
@@ -22,9 +24,9 @@ void display_prompt() {
 }
 
 void display_turn(int my_turn) {
-    my_printf("\nmy_positions:%s\n");
+    my_printf("\nmy_positions:\n");
     display_map(game->my_map);
-    my_printf("\nenemy's positions:%s\n");
+    my_printf("\nenemy's positions:\n");
     display_map(game->enemy_map);
     if (!my_turn)
         my_printf("waiting for enemy's attack...\n");
