@@ -9,15 +9,11 @@
 
 int check_valid_attack(char *str)
 {
-    if (my_strlen(str) != 3) {
+    if (my_strlen(str) != 2) {
         my_printf("wrong position\n");
         return (84);
     }
     if (str[0] < 'A' || str[0] > 'H' || str[1] < '1' || str[1] > '8') {
-        my_printf("wrong position\n");
-        return (84);
-    }
-    if (str[2] != '\n') {
         my_printf("wrong position\n");
         return (84);
     }
