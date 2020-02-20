@@ -21,6 +21,7 @@ typedef struct game {
     char **my_map;
     char **enemy_map;
     pid_t enemy_pid;
+    int is_my_turn;
 } game_t;
 
 game_t *game;
@@ -44,3 +45,4 @@ void init_recepetion(void);
 void send_msg(char *message);
 int launch_game_p1(char *path);
 int launch_game_p2(char *path);
+void display_turn(int);

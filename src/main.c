@@ -13,6 +13,7 @@ int main(int ac, char **argv)
 
     game = malloc(sizeof(game_t));
     game->my_map = fill_tab();
+    game->is_my_turn = 0;
     if (ac < 2)
         return (84);
     if (ac == 2)

@@ -7,18 +7,34 @@
 
 #include "../include/navy.h"
 
+void    handle_position(char *msg)
+{
+    my_printf("%s: ", msg);
+    if (missed_or_touch(msg) == 1)
+        my_printf("hit\n");
+    else
+        my_printf("missed\n");
+    if (game->is_my_turn == 0)
+        send_msg(msg);
+    else
+        my_printf("\nwaiting for enemy's attack...\n");
+}
+
 void    msg_handler(char *message, pid_t pid) {
     if (!my_strcmp(message, "00")) {
         if (!game->enemy_pid) {
             game->enemy_pid = pid;
             my_printf("\nenemy connected\n");
             send_msg("00");
+            display_turn(1);
         } else {
             my_printf("successfully connected\n");
+            display_turn(0);
         }
         return;
+    } else {
+        handle_position(message);
     }
-    printf("Message %s\n", message);
 }
 
 void    send_msg(char *message) {
@@ -55,7 +71,9 @@ void    init_recepetion(void)
 {
     struct sigaction sa;
 
+    game->int_recept = 0;
     game->str_recept = malloc(sizeof(char ) * 3);
+    my_memset(game->str_recept, 0, 3);
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = SA_SIGINFO;
     sa.sa_sigaction = signal_handler;

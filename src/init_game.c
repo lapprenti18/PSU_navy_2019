@@ -10,6 +10,7 @@
 int    launch_game_p1(char *path) {
     if (load_positions_file(path, game->my_map) == 84)
         return (84);
+    game->enemy_map = fill_tab();
     init_recepetion();
     printf("my_pid : %d\n", getpid());
     printf("waiting for ennemy connexion...\n");
@@ -20,6 +21,7 @@ int    launch_game_p1(char *path) {
 int    launch_game_p2(char *path) {
     if (load_positions_file(path, game->my_map) == 84)
         return (84);
+    game->enemy_map = fill_tab();
     init_recepetion();
     printf("my_pid : %d\n", getpid());
     send_msg("00");
