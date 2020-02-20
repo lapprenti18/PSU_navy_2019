@@ -27,6 +27,8 @@ void    handle_response(char *msg)
     }
     if (game->player == 2)
         display_turn(0);
+    else
+        printf("\nwaiting for enemy's attack...\n");
 }
 
 void    handle_position(char *msg)
