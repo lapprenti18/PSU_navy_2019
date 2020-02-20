@@ -19,7 +19,7 @@ int main(int ac, char **argv)
     if (ac == 2)
         ret = launch_game_p1(argv[1]);
     if (ac == 3) {
-        if (my_str_isnum(argv[1]) && my_str_isalpha(argv[2])) {
+        if (my_str_isnum(argv[1])) {
             game->enemy_pid = my_getnbr(argv[1]);
             ret = launch_game_p2(argv[2]);
         }
