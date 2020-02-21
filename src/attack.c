@@ -32,7 +32,7 @@ int check_win_or_loose(char **tab)
     int nb = 0;
 
     for (int a = 0; tab[a]; a += 1) {
-        for (int b; tab[a][b]; b += 1)
+        for (int b = 0; tab[a][b]; b += 1)
             tab[a][b] == 'x' ? nb += 1 : 0;
     }
     if (nb == 14)

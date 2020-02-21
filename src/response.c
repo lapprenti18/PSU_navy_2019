@@ -47,7 +47,7 @@ void    handle_position(char *msg)
     if (check_win_or_loose(game->my_map) == 1) {
         display_turn(-1);
         my_printf("\nEnemy won\n");
-        game->return_code = 0;
+        game->return_code = 1;
         return;
     }
     if (game->player == 1)
