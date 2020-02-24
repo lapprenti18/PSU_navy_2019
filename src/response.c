@@ -42,7 +42,6 @@ void    handle_position(char *msg)
         my_printf("\n%s: missed\n", msg);
     }
     display_touch(game->my_map, msg, touch ? 'x' : 'o');
-    my_printf("\n");
     send_msg(touch ? "HI" : "MI");
     if (check_win_or_loose(game->my_map) == 1) {
         display_turn(-1);
@@ -52,6 +51,8 @@ void    handle_position(char *msg)
     }
     if (game->player == 1)
         display_turn(1);
-    else
+    else {
+        my_printf("\n");
         display_prompt();
+    }
 }
