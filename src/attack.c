@@ -43,5 +43,7 @@ int check_win_or_loose(char **tab)
 
 void display_touch(char **tab, char *str, char x)
 {
+    if (tab[str[1] - 49][str[0] - 65] == 'x')
+        return;
     tab[str[1] - 49][str[0] - 65] = x;
 }
