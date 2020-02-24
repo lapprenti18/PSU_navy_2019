@@ -1,44 +1,27 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_getnbr
+** PSU_my_printf_2019
 ** File description:
-** Return number, sent as a string
+** my_getnbr.c
 */
 
-int    check_negative(char c)
+int my_getnbr(char *str)
 {
-    if (c == '-')
-        return (1);
-    return (0);
-}
+int i;
+int neg;
+int n;
 
-int    make_negative(int negative, int nb)
-{
-    if (negative == 1)
-        nb = nb * (-1);
-    return nb;
-}
-
-int    my_getnbr(char const *str)
-{
-    int negative = 0;
-    int nb = 0;
-    long long nb_long = 0;
-
-    while (*str != '\0') {
-        if ((*str == '+' || *str == '-') && nb == 0) {
-            negative = check_negative(*str);
-        } else if (*str >= '0' && *str <= '9') {
-            if (nb * 10 + (*str - '0') != nb_long * 10 + (*str - '0'))
-                return (0);
-            nb = nb * 10 + (*str - '0');
-            nb_long = nb_long * 10 + (*str - '0');
-        } else if (nb == 0) {
-            return (0);
-        } else {
-            break;
-        }
-        str++;
+    neg = 1;
+    i = 0;
+    while (str[i] != '\0' && (str[i] == '+' || str[i] == '-')) {
+        if (str[i] == '-')
+            neg = neg * -1;
+    i++;
     }
-    return (make_negative(negative, nb));
+    n = 0;
+    while (str[i] >= 48 && str[i] <= 57) {
+        n = (n * 10) + str[i] - 48;
+        i++;
+    }
+    return (n * neg);
 }
