@@ -28,7 +28,7 @@ void display_turn(int my_turn)
 {
     my_printf("\nmy_positions:\n");
     display_map(game->my_map);
-    my_printf("\nenemy's positions:\n");
+    my_printf("enemy's positions:\n");
     display_map(game->enemy_map);
     if (my_turn == -1)
         return;
