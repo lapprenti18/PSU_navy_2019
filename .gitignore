@@ -2,5 +2,6 @@
 *.o
 lib/*.a
 lib/libmy.a
+lib/my/libmy.a
 navypos*
 pos*
