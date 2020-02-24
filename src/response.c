@@ -21,7 +21,7 @@ void    handle_response(char *msg)
     display_touch(game->enemy_map, game->last_input, touch ? 'x' : 'o');
     if (check_win_or_loose(game->enemy_map) == 1) {
         display_turn(-1);
-        my_printf("\nI won\n");
+        my_printf("I won\n");
         game->return_code = 0;
         return;
     }
@@ -45,7 +45,7 @@ void    handle_position(char *msg)
     send_msg(touch ? "HI" : "MI");
     if (check_win_or_loose(game->my_map) == 1) {
         display_turn(-1);
-        my_printf("\nEnemy won\n");
+        my_printf("Enemy won\n");
         game->return_code = 1;
         return;
     }
