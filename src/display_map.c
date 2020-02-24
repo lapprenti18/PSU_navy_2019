@@ -7,7 +7,8 @@
 
 #include "../include/navy.h"
 
-void display_prompt() {
+void display_prompt(void)
+{
     char buf[32278];
     int size = 0;
 

@@ -7,8 +7,7 @@
 
 MAIN	=	src/main.c
 
-SRC	=	src/init.c	\
-		src/errors.c	\
+SRC	=	src/errors.c	\
 		src/communication.c	\
 		src/init_game.c	\
 		src/check_in_the_path.c	\

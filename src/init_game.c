@@ -7,7 +7,8 @@
 
 #include "../include/navy.h"
 
-int    launch_game_p1(char *path) {
+int    launch_game_p1(char *path)
+{
     if (load_positions_file(path, game->my_map) == 84)
         return (84);
     game->player = 1;
@@ -19,7 +20,8 @@ int    launch_game_p1(char *path) {
     return (game->return_code);
 }
 
-int    launch_game_p2(char *path) {
+int    launch_game_p2(char *path)
+{
     if (load_positions_file(path, game->my_map) == 84)
         return (84);
     game->player = 2;
