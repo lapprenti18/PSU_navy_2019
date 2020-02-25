@@ -17,7 +17,7 @@ int    launch_game_p1(char *path)
     my_printf("my_pid: ");
     my_put_nbr(getpid());
     my_putchar('\n');
-    my_printf("waiting for enemy connexion...\n");
+    my_printf("waiting for enemy connection...\n");
     while (game->return_code == -1);
     return (game->return_code);
 }
