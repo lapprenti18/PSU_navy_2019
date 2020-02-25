@@ -26,7 +26,7 @@ void display_prompt(void)
 
 void display_turn(int my_turn)
 {
-    my_printf("\nmy_positions:\n");
+    my_printf("\nmy positions:\n");
     display_map(game->my_map);
     my_printf("enemy's positions:\n");
     display_map(game->enemy_map);
