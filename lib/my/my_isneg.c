@@ -4,6 +4,7 @@
 ** File description:
 ** Print N if n is negative and P if positive
 */
+
 int    my_putchar(char c);
 
 int    my_isneg(int n)

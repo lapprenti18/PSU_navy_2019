@@ -7,16 +7,16 @@
 
 int my_getnbr(char *str)
 {
-int i;
-int neg;
-int n;
+    int i;
+    int neg;
+    int n;
 
     neg = 1;
     i = 0;
     while (str[i] != '\0' && (str[i] == '+' || str[i] == '-')) {
         if (str[i] == '-')
             neg = neg * -1;
-    i++;
+        i++;
     }
     n = 0;
     while (str[i] >= 48 && str[i] <= 57) {
