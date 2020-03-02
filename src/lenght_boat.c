@@ -9,13 +9,11 @@
 
 int calc_lenght_boat_two(char *cd)
 {
-    if (cd[2] == cd[5]) {
-        if ((int)cd[6] - (int)cd[3] != (int)cd[0] - 49)
-            return (84);
-    } else if (cd[3] == cd[6]) {
-        if ((int)cd[5] - (int)cd[2] != (int)cd[0] - 49)
-            return (84);
-    } else
+    if (cd[2] != cd[5] && cd[3] != cd[6])
+        return (84);
+    if (cd[2] == cd[5] && (int)cd[6] - (int)cd[3] != (int)cd[0] - 49)
+        return (84);
+    else if (cd[3] == cd[6] && (int)cd[5] - (int)cd[2] != (int)cd[0] - 49)
         return (84);
     return (0);
 }
